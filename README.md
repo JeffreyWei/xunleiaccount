@@ -20,3 +20,8 @@
 	$ python  app2.py
 
 
+##依赖安装
+
+{% highlight bash lineno %}
+sudo pip install beautifulsoup4
+{%  endhighlight %}
