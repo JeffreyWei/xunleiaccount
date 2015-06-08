@@ -16,7 +16,8 @@
 	
 	[http://http://xlfans.com](http://http://xlfans.com)
 	
-	$ curl https://raw.githubusercontent.com/JeffreyWei/xunleiaccount/master/app2.py > app.py
+	$ curl https://raw.githubusercontent.com/JeffreyWei/xunleiaccount/master/app2.py > app2.py
+	
 	$ python  app2.py
 
 
