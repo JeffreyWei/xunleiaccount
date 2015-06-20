@@ -26,13 +26,6 @@ def getXunLeiAccount():
                 if (text.find("\n")):
                     text = text.split("\n")[0]
                 if (text.find(flag) >= 0):
-                    # pat      =   u"([\u4e00-\u9fff]+)"
-                    # pattern =   re.compile(pat)
-                    # results =   pattern.findall(text)
-                    # # 移除中文
-                    # for result in results:
-                    #     print(result)
-                    #     # text=text.replace(result,'\t\t')
                     print(text)
             break
 
@@ -46,7 +39,6 @@ def checkLink(title):
     date = str(now.tm_mday) + "日"
     title = title.encode('utf-8')
     return title.find(date);
-
 
 if __name__ == '__main__':
     getXunLeiAccount()
