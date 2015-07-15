@@ -36,7 +36,8 @@ def checkLink(title):
     now = time.localtime(time.time())
     # 会出现标题没有月份的主题
     # date = str(now.tm_mon) + "月" + str(now.tm_mday) + "日"
-    date = str(now.tm_mday) + "日"
+    # date = str(now.tm_mday) + "日"
+    date = str(now.tm_mday)
     title = title.encode('utf-8')
     return title.find(date);
 
