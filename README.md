@@ -24,3 +24,9 @@
 ##依赖安装
 sudo pip install beautifulsoup4
 
+
+##快速执行
+
+   $ curl https://raw.githubusercontent.com/JeffreyWei/xunleiaccount/master/app.py | python
+
+   $ curl https://raw.githubusercontent.com/JeffreyWei/xunleiaccount/master/app2.py | python
