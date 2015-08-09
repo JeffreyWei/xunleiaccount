@@ -12,13 +12,13 @@ def getXunLeiAccount():
     url = "http://521xunlei.com/portal.php"
     res = urllib2.urlopen(url)
     html = unicode(res.read(), 'GBK').encode('UTF-8')
-    soup = BeautifulSoup(html)
+    soup = BeautifulSoup(html, 'html.parser')
     tag_a = soup.find(id="portal_block_62_content").find_all('a')
     for link in tag_a:
         if (checkLink(link.get("title")) >= 0):
             pageURL = "http://521xunlei.com/" + link.get('href')
             html = urllib2.urlopen(pageURL).read()
-            soup = BeautifulSoup(html)
+            soup = BeautifulSoup(html, 'html.parser')
             content = soup.find_all("td", class_="t_f")[0]
             flag = "迅雷"
             for text in content.get_text().split("\r\n"):
