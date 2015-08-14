@@ -11,10 +11,10 @@ from bs4 import BeautifulSoup
 def getXunLeiAccount():
     url = "http://xlfans.com"
     html = getPage(url)
-    soup = BeautifulSoup(html)
+    soup = BeautifulSoup(html, 'html.parser')
     tag_a = soup.find_all("article", class_="excerpt")[0]
     html = getPage(tag_a.find_all("a")[0].get('href'))
-    soup = BeautifulSoup(html)
+    soup = BeautifulSoup(html, 'html.parser')
     tag_p =soup.find_all("p")
     for line in tag_p:
         text=line.get_text().encode('utf-8')
