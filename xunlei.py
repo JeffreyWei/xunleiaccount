@@ -28,7 +28,7 @@ def getXunLeiAccount():
 					text = text.split("\n")[0]
 				if (text.find(flag) >= 0):
 					for line in text.split("\n"):
-						if (line.find(flag2) >= 0 and len(line) < 90):
+						if (line.find(flag) >= 0 and len(line) < 90):
 							print(line)
 			break
 

@@ -18,7 +18,7 @@ def getXunLeiAccount():
     tag_p =soup.find_all("p")
     for line in tag_p:
         text=line.get_text().encode('utf-8')
-        if(text.find("迅雷")>=0 and text.find("密码")>=0):
+        if(text.find("迅雷")>=0 and text.find("密")>=0):
             print(line)
 
 def getPage(url):
