@@ -8,6 +8,7 @@ import re
 from bs4 import BeautifulSoup
 import gzip, cStringIO
 
+
 def getXunLeiAccount():
 	html = getPageHTML('http://521xunlei.com/portal.php')
 	soup = BeautifulSoup(html, 'html.parser')
@@ -27,7 +28,7 @@ def getXunLeiAccount():
 				if (text.find(flag) >= 0):
 					for line in text.split("\n"):
 						if (line.find(flag) >= 0 and len(line) < 90):
-							print(line)
+							print(removeChineseChar(line))
 			break
 
 
@@ -42,6 +43,7 @@ def checkLink(title):
 	title = title.encode('utf-8')
 	return title.find(date);
 
+
 def getPageHTML(url):
 	req = urllib2.Request(url);
 	req.add_header('Accept-Encoding', 'gzip, deflate');
@@ -53,7 +55,20 @@ def getPageHTML(url):
 	html = html.decode('gbk')
 	return html
 
+
+def removeChineseChar(text):
+	text = text.decode('utf-8')
+	line = u''
+	for char in text:
+		if ord(char) >= 256:
+			line += " "
+		else:
+			line += char
+	return line
+
+
 if __name__ == '__main__':
 	getXunLeiAccount()
-
-
+# data=u"爱密码迅雷账号共享weishaogood:1独家分享密码9153551"
+# # english_only = ''.join(x for x in data if ord(x) >= 256)
+# print removeChineseChar(data)
