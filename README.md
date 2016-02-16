@@ -38,3 +38,8 @@
 **依赖安装**
 	
 	$ sudo pip install beautifulsoup
+	
+	
+##20160216
+* 移除结果中的中文字符，方便复制
+* 结果重排序
