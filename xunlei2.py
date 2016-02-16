@@ -3,12 +3,12 @@
 __author__ = 'wei'
 
 import urllib2
-import time
-import re
+import utils
 from bs4 import BeautifulSoup
 
 
 def getXunLeiAccount():
+    data=[]
     url = "http://xlfans.com"
     html = getPage(url)
     soup = BeautifulSoup(html, 'html.parser')
@@ -19,7 +19,11 @@ def getXunLeiAccount():
     for line in tag_p:
         text=line.get_text().encode('utf-8')
         if(text.find("迅雷")>=0 and text.find("密")>=0):
-            print(line)
+            dataList=utils.removeChineseChar(text).split(u'\n')
+            for _data in dataList:
+                if (len(_data.replace(' ',''))>=10):
+                    data.append(_data)
+    return data
 
 def getPage(url):
     '''下载文件html代码，找出一楼的核心代码'''
@@ -31,4 +35,5 @@ def getPage(url):
     return htmlAll
 
 if __name__ == '__main__':
-    getXunLeiAccount()
+    data=getXunLeiAccount()
+    utils.showData(data)
