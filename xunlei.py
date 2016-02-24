@@ -13,7 +13,11 @@ def getXunLeiAccount():
 	data = []
 	html = getPageHTML('http://521xunlei.com/portal.php')
 	soup = BeautifulSoup(html, 'html.parser')
-	tag_a = soup.find(id="portal_block_62_content").find_all('a')
+	elements = soup.find(id="portal_block_62_content")
+	if (elements==None):
+		print(u"未找到资源.")
+		return data
+	tag_a = elements.find_all('a')
 	for link in tag_a:
 		if (checkLink(link.get("title")) >= 0):
 			pageURL = "http://521xunlei.com/" + link.get('href')
@@ -29,8 +33,8 @@ def getXunLeiAccount():
 				if (text.find(flag) >= 0):
 					for line in text.split("\n"):
 						if (line.find(flag) >= 0 and len(line) < 90):
-							_data=utils.removeChineseChar(line)
-							if (len(_data.replace(' ',''))>=10):
+							_data = utils.removeChineseChar(line)
+							if (len(_data.replace(' ', '')) >= 10):
 								data.append(_data)
 			break
 	return data;
@@ -61,5 +65,5 @@ def getPageHTML(url):
 
 
 if __name__ == '__main__':
-	data=getXunLeiAccount()
+	data = getXunLeiAccount()
 	utils.showData(data)
