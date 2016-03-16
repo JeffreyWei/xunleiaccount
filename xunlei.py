@@ -30,12 +30,13 @@ def getXunLeiAccount():
 				text = text.encode('utf-8')
 				if (text.find("\n")):
 					text = text.split("\n")[0]
-				if (text.find(flag) >= 0):
-					for line in text.split("\n"):
-						if (line.find(flag) >= 0 and len(line) < 90):
-							_data = utils.removeChineseChar(line)
-							if (len(_data.replace(' ', '')) >= 10):
-								data.append(_data)
+				print text
+				# if (text.find(flag) >= 0):
+				for line in text.split("\n"):
+					if (line.find(flag) >= 0 and len(line) < 90):
+						_data = utils.removeChineseChar(line)
+						if (len(_data.replace(' ', '')) >= 10):
+							data.append(_data)
 			break
 	return data;
 

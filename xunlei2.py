@@ -18,6 +18,7 @@ def getXunLeiAccount():
     tag_p =soup.find_all("p")
     for line in tag_p:
         text=line.get_text().encode('utf-8')
+        print(line)
         if(text.find("迅雷")>=0 and text.find("密")>=0):
             dataList=utils.removeChineseChar(text).split(u'\n')
             for _data in dataList:
