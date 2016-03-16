@@ -3,7 +3,6 @@
 __author__ = 'wei'
 
 import urllib2
-import time
 import utils
 from bs4 import BeautifulSoup
 import gzip, cStringIO
@@ -19,7 +18,7 @@ def getXunLeiAccount():
 		return data
 	tag_a = elements.find_all('a')
 	for link in tag_a:
-		if (checkLink(link.get("title")) >= 0):
+		if (utils.checkLink(link.get("title")) >= 0):
 			pageURL = "http://521xunlei.com/" + link.get('href')
 			html = getPageHTML(pageURL)
 			soup = BeautifulSoup(html, 'html.parser')
@@ -39,19 +38,6 @@ def getXunLeiAccount():
 							data.append(_data)
 			break
 	return data;
-
-
-def checkLink(title):
-	if title == None:
-		return -1
-	now = time.localtime(time.time())
-	# 会出现标题没有月份的主题
-	# date = str(now.tm_mon) + "月" + str(now.tm_mday) + "日"
-	# date = str(now.tm_mday) + "日"
-	date = str(now.tm_mday)
-	title = title.encode('utf-8')
-	return title.find(date);
-
 
 def getPageHTML(url):
 	req = urllib2.Request(url);
