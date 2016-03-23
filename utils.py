@@ -4,6 +4,7 @@ __author__ = 'wei'
 import random
 import time
 
+
 def removeChineseChar(text):
 	text = text.decode('utf-8')
 	line = u''
@@ -14,10 +15,12 @@ def removeChineseChar(text):
 			line += char
 	return line
 
+
 def showData(data):
 	random.shuffle(data)
 	for line in data:
-		print(line)
+		if (len(line) < 50):
+			print(line)
 
 
 def checkLink(title):
