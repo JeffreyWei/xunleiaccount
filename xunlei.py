@@ -54,4 +54,3 @@ def getPageHTML(url):
 if __name__ == '__main__':
 	data = getXunLeiAccount()
 	utils.showData(data)
-	print(u"密码均为:     www521xunleicom")
